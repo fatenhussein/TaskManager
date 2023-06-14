@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import "../App.css";
 
-const List = ({ title, desc, deleteTask, id, editTitle, editDesc }) => {
+const List = ({ title, desc, deleteTask, id, editTask}) => {
   return (
     <>
       <ul className="list">
@@ -21,19 +21,12 @@ const List = ({ title, desc, deleteTask, id, editTitle, editDesc }) => {
           <button
             className="btn btn"
             onClick={() => {
-              editTitle(id);
+              editTask(id);
             }}
           >
-            Edit title
+            Edit 
           </button>
-          <button
-            className="btn btn"
-            onClick={() => {
-              editDesc(id);
-            }}
-          >
-            Edit desc
-          </button>
+          
         </li>
       </ul>
     </>

@@ -26,21 +26,16 @@ function App() {
       return currentItem.filter((item) => item.id !== id);
     });
   };
-  const editTitle = (id) => {
-    const edit = item.title;
-    let currentItem = items.find((item) => item.id === id);
-    currentItem.title = edit;
+  const editTask = (id) => {
+    const editTitle = item.title;
+    const editDesc = item.desc;
 
+    let currentItem = items.find((item) => item.id === id);
+    currentItem.title = editTitle;
+    currentItem.desc = editDesc;
     setItem({ ...item, currentItem });
   };
 
-  const editDesc = (id) => {
-    const edit = item.desc;
-    let currentItem = items.find((item) => item.id === id);
-    currentItem.desc = edit;
-
-    setItem({ ...item, currentItem });
-  };
   useEffect(() => {
     if (items.length > 0) {
       localStorage.setItem("items", JSON.stringify(items));
@@ -79,8 +74,7 @@ function App() {
               key={index}
               id={item.id}
               deleteTask={deleteTask}
-              editTitle={editTitle}
-              editDesc={editDesc}
+              editTask={editTask}
             />
           );
         })}
